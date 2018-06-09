@@ -22,7 +22,7 @@ function verifyPostData(req, res, next){
   const digest = 'sha1=' + hmac.update(payload).digest('hex');
 
   const checksum = req.headers[SIGNATURE];
-  
+
   if(!checksum || !digest || checksum !== digest){
     return next(`Request body digest (${digest}) didnot match ${SIGNATURE} (${checksum})`)
   }
