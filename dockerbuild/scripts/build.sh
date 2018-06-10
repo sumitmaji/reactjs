@@ -41,6 +41,7 @@ pushd /$BUILD_PATH/$NUMBER
 git clone -b $BRANCH $URL/${REP}.git
 pushd $REP
 source config
+chmod +x build.sh
 ./build.sh
 docker tag $IMAGE_NAME master.cloud.com:5000/$REPO_NAME
 docker push master.cloud.com:5000/$REPO_NAME
