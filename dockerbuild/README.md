@@ -19,7 +19,7 @@
 ```
 
 ## Configuration
-The following table lists the configurable parameters of the drone charts and their default values.
+The following table lists the configurable parameters of the docker-build and their default values.
 
 | Parameter                   | Description                                           | Default                |
 |-----------------------------|-------------------------------------------------------|------------------------|
