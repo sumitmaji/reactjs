@@ -1,2 +1,3 @@
 #!/bin/bash
-docker build -t sumit/docker-build-app .
+source config
+docker build -t sumit/$IMAGE_NAME .

@@ -2,6 +2,7 @@
 [[ "TRACE" ]] && set -x
 
 : ${BRANCH:=master}
+: ${BUILD_PATH:=/tmp}
 
 while [[ $# -gt 0 ]]
 do
@@ -35,7 +36,13 @@ elif [[ -z $URL ]]; then
 fi
 
 NUMBER=$[ ( $RANDOM % 100 )  + 1 ]
-mkdir /tmp/$NUMBER
-pushd /tmp/$NUMBER
-git clone -b $BRANCH $URL/$REP
+mkdir /$BUILD_PATH/$NUMBER
+pushd /$BUILD_PATH/$NUMBER
+git clone -b $BRANCH $URL/${REP}.git
+pushd $REP
+#source config
+#./build.sh
+#docker tag $IMAGE_NAME master.cloud.com:5000/$REPO_NAME
+#docker push master.cloud.com:5000/$REPO_NAME
+popd
 popd

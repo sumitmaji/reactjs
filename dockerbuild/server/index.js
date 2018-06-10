@@ -19,7 +19,7 @@ app.post('/process', (req, res, next) => {
     var url = req.body.repository.owner.html_url;
     var rep = req.body.repository.name;
     console.log(url, rep)
-    execAsync(`./scripts/build.sh -r ${rep}.git -u ${url}`, {
+    execAsync(`./scripts/build.sh -r ${rep} -u ${url}`, {
         silent: true,
         cwd: '.'
       })
