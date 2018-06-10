@@ -10,7 +10,7 @@ app.use(bodyParser.urlencoded({ extended: false }))
 //To parse json data
 app.use(bodyParser.json());
 
-app.post('/process', (req, res) => {
+app.post('/process', (req, res, next) => {
     try{
       var url = req.payload.repository.owner.html_url
       console.log(url)
