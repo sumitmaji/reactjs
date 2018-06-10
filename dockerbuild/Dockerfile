@@ -1,9 +1,13 @@
 from ubuntu:xenial
 
-RUN apt-get update &&\
+RUN apt-get update \
+&& curl -sL https://deb.nodesource.com/setup_8.x | bash - &&\
 apt-get install -y docker.io \
 nodejs \
-npm
+git \
+build-essential \
+&& apt-get clean \
+&& rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 RUN node -v
 
