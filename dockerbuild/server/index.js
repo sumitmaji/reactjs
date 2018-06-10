@@ -13,7 +13,7 @@ app.use(bodyParser.json());
 app.post('/process', (req, res, next) => {
     try{
       console.log(req.body)
-      var url = req.payload.repository.owner.html_url
+      var url = req.body.repository.owner.html_url
       console.log(url)
       //shell.exec(`../scripts/build.sh -r ${rep} -u ${url}`)
       res.status(200).send('done');
