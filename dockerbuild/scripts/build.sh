@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 [[ "TRACE" ]] && set -x
 
+source config
 : ${BRANCH:=master}
 : ${BUILD_PATH:=/tmp}
 
