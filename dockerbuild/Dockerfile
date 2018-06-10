@@ -1,5 +1,8 @@
 from node:carbon
 
+RUN apt-get update &&\
+apt-get install docker.io -y
+
 # Create app directory
 WORKDIR /usr/src/app
 

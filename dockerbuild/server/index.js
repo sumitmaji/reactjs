@@ -3,7 +3,7 @@ const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
 const crypto = require('crypto');
-
+const shell = require('shelljs')
 
 //To parse URL encoded data
 app.use(bodyParser.urlencoded({ extended: false }))
@@ -11,13 +11,16 @@ app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json());
 
 app.post('/process', (req, res) => {
-    console.log(req.body)
-    res.status(200).send('done')
+    // try{
+    //   shell.exec(`../scripts/build.sh -r ${rep} -u ${url}`)
+      res.status(200).send('done');
+    // }catch(err){
+    //     next({'Error occurred while executing script'})
+    // }
 });
 
 
 app.use((err, req, res, next) => {
-  console.log('Error!!!!', err)
   res.status(403).send(err);
 })
 
