@@ -1,2 +1,3 @@
 IMAGE_NAME=sumit/docker-build-app
 REPO_NAME=docker-build-app
+CONTAINER_NAME=docker-build
