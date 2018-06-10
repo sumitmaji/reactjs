@@ -28,8 +28,8 @@ COPY server/index.js .
 
 
 RUN mkdir -p scripts
-COPY scripts/build.sh scripts/build.sh
-COPY scripts/config scripts/config
+ADD scripts/build.sh scripts/build.sh
+ADD scripts/config scripts/config
 RUN chmod +x scripts/build.sh
 
 EXPOSE 5002
