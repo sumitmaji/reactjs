@@ -26,6 +26,11 @@ RUN npm install
 
 COPY server/index.js .
 
+
+RUN mkdir -p scripts
+COPY scripts/build.sh scripts/build.sh
+RUN chmod +x scripts/build.sh
+
 EXPOSE 5002
 
 CMD [ "npm", "start" ]
