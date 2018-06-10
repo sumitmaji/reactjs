@@ -12,6 +12,7 @@ app.use(bodyParser.json());
 
 app.post('/process', (req, res, next) => {
     try{
+      console.log(req.body)
       var url = req.payload.repository.owner.html_url
       console.log(url)
       //shell.exec(`../scripts/build.sh -r ${rep} -u ${url}`)
@@ -23,6 +24,7 @@ app.post('/process', (req, res, next) => {
 
 
 app.use((err, req, res, next) => {
+  console.log(err)
   res.status(403).send(err);
 })
 
