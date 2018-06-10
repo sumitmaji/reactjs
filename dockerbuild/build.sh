@@ -1,2 +1,2 @@
 #!/bin/bash
-docker build -t --name docker-build sumit/docker-build-app .
+docker build -t sumit/docker-build-app .
