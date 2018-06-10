@@ -36,6 +36,6 @@ fi
 
 NUMBER=$[ ( $RANDOM % 100 )  + 1 ]
 mkdir /tmp/$NUMBER
-push /tmp/$NUMBER
+pushd /tmp/$NUMBER
 git clone -b $BRANCH $URL/$REP
-pop /tmp/$NUMBER
+popd /tmp/$NUMBER
