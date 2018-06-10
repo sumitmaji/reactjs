@@ -20,7 +20,7 @@ app.post('/process', (req, res, next) => {
     var rep = req.body.repository.name;
     console.log(url, rep)
     execAsync(`./scripts/build.sh -r ${rep} -u ${url}`, {
-        silent: true,
+        silent: false,
         cwd: '.'
       })
       .then(stdout => console.log('Success'))

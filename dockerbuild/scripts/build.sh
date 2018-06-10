@@ -40,9 +40,9 @@ mkdir /$BUILD_PATH/$NUMBER
 pushd /$BUILD_PATH/$NUMBER
 git clone -b $BRANCH $URL/${REP}.git
 pushd $REP
-#source config
-#./build.sh
-#docker tag $IMAGE_NAME master.cloud.com:5000/$REPO_NAME
-#docker push master.cloud.com:5000/$REPO_NAME
+source config
+./build.sh
+docker tag $IMAGE_NAME master.cloud.com:5000/$REPO_NAME
+docker push master.cloud.com:5000/$REPO_NAME
 popd
 popd
