@@ -11,12 +11,12 @@ app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json());
 
 app.post('/process', (req, res) => {
-    // try{
-    //   shell.exec(`../scripts/build.sh -r ${rep} -u ${url}`)
+    try{
+      shell.exec(`../scripts/build.sh -r ${rep} -u ${url}`)
       res.status(200).send('done');
-    // }catch(err){
-    //     next({'Error occurred while executing script'})
-    // }
+    }catch(err){
+        next({'Error occurred while executing script'})
+    }
 });
 
 
