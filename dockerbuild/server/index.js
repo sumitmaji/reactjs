@@ -17,7 +17,7 @@ app.post('/process', (req, res, next) => {
       //shell.exec(`../scripts/build.sh -r ${rep} -u ${url}`)
       res.status(200).send('done');
     }catch(err){
-        next(err)
+        next(err);
     }
 });
 
