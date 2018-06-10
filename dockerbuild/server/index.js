@@ -12,7 +12,9 @@ app.use(bodyParser.json());
 
 app.post('/process', (req, res) => {
     try{
-      shell.exec(`../scripts/build.sh -r ${rep} -u ${url}`)
+      var url = req.payload.repository.owner.html_url
+      console.log(url)
+      //shell.exec(`../scripts/build.sh -r ${rep} -u ${url}`)
       res.status(200).send('done');
     }catch(err){
         next({'Error occurred while executing script'})
