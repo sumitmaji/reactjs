@@ -1,6 +1,6 @@
 from ubuntu:xenial
 
-RUN apt-get update \
+RUN apt-get update &&\
 apt-get install -y docker.io \
 nodejs \
 npm
