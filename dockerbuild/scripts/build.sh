@@ -38,4 +38,4 @@ NUMBER=$[ ( $RANDOM % 100 )  + 1 ]
 mkdir /tmp/$NUMBER
 pushd /tmp/$NUMBER
 git clone -b $BRANCH $URL/$REP
-popd /tmp/$NUMBER
+popd
