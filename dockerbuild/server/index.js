@@ -12,9 +12,10 @@ app.use(bodyParser.json());
 
 app.post('/process', (req, res, next) => {
     try{
-      console.log(req.body)
-      var url = req.body.repository.owner.html_url
-      console.log(url)
+
+      var url = req.body.repository.owner.html_url;
+      var rep = req.body.repository.name;
+      console.log(url, rep)
       //shell.exec(`../scripts/build.sh -r ${rep} -u ${url}`)
       res.status(200).send('done');
     }catch(err){
