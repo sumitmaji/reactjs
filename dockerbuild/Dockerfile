@@ -2,9 +2,10 @@ from ubuntu:xenial
 
 RUN apt-get update \
 apt-get install -y docker.io \
-curl -sL https://deb.nodesource.com/setup_6.x | bash - \
-nodejs
+nodejs \
+npm
 
+RUN node -v
 
 # Create app directory
 WORKDIR /usr/src/app
