@@ -1,0 +1,4 @@
+IMAGE_NAME=sumit/reghook
+REPO_NAME=reghook
+CONTAINER_NAME=reghook
+BUILD_PATH=/tmp
