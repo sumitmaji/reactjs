@@ -4,14 +4,19 @@ RUN apt-get update \
 && apt-get install -y curl wget\
 && curl -sL https://deb.nodesource.com/setup_8.x | bash - \
 #&& apt-get install -y docker.io \
-&& wget -q https://dl.k8s.io/v1.10.0/kubernetes-client-darwin-amd64.tar.gz -O /tmp/kubernetes-client-darwin-amd64.tar.gz \
-&& tar -xzvf /tmp/kubernetes-client-darwin-amd64.tar.gz -C /tmp/ \
+&& wget -q https://dl.k8s.io/v1.10.0/kubernetes-client-linux-amd64.tar.gz -O /tmp/kubernetes-client-linux-amd64.tar.gz \
+&& tar -xzvf /tmp/kubernetes-client-linux-amd64.tar.gz -C /tmp/ \
 && cp /tmp/kubernetes/client/bin/kubectl /usr/local/bin/kubectl \
-&& rm -rf /tmp/kubernetes-client-darwin-amd64.tar.gz \
+&& rm -rf /tmp/* \
 && chmod +x /usr/local/bin/kubectl \
+&& wget https://kubernetes-helm.storage.googleapis.com/helm-v2.8.2-linux-amd64.tar.gz -O /tmp/helm-v2.8.2-linux-amd64.tar.gz \
+&& tar -xzvf /tmp/helm-v2.8.2-linux-amd64.tar.gz -C /tmp/ \
+&& cp /tmp/linux-amd64/helm /usr/local/bin/helm \
+&& chmod +x /usr/local/bin/helm
 && apt-get install -y \
 nodejs \
 git \
+socat \
 build-essential \
 && apt-get clean \
 && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
@@ -35,6 +40,7 @@ COPY server/index.js .
 
 RUN mkdir -p scripts
 ADD scripts/build.sh scripts/build.sh
+ADD rbac.yaml scripts/rbac.yaml
 
 EXPOSE 5003
 
