@@ -3,7 +3,6 @@ FROM ubuntu:xenial
 RUN apt-get update \
 && apt-get install -y curl wget\
 && curl -sL https://deb.nodesource.com/setup_8.x | bash - \
-#&& apt-get install -y docker.io \
 && wget -q https://dl.k8s.io/v1.10.0/kubernetes-client-linux-amd64.tar.gz -O /tmp/kubernetes-client-linux-amd64.tar.gz \
 && tar -xzvf /tmp/kubernetes-client-linux-amd64.tar.gz -C /tmp/ \
 && cp /tmp/kubernetes/client/bin/kubectl /usr/local/bin/kubectl \
