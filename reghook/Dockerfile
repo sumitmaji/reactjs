@@ -41,7 +41,9 @@ COPY server/index.js .
 RUN mkdir -p scripts
 ADD scripts/build.sh scripts/build.sh
 ADD rbac.yaml scripts/rbac.yaml
+ADD setup.sh scripts/setup.sh
+RUN chmod +x scripts/setup.sh
 
 EXPOSE 5003
 
-CMD [ "npm", "start" ]
+ENTRYPOINT [ "./scripts/setup.sh" ]
