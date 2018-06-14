@@ -12,7 +12,7 @@ RUN apt-get update \
 && wget https://kubernetes-helm.storage.googleapis.com/helm-v2.8.2-linux-amd64.tar.gz -O /tmp/helm-v2.8.2-linux-amd64.tar.gz \
 && tar -xzvf /tmp/helm-v2.8.2-linux-amd64.tar.gz -C /tmp/ \
 && cp /tmp/linux-amd64/helm /usr/local/bin/helm \
-&& chmod +x /usr/local/bin/helm
+&& chmod +x /usr/local/bin/helm \
 && apt-get install -y \
 nodejs \
 git \
