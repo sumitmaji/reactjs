@@ -1,13 +1,17 @@
-from FROM alpine:3.6
+FROM ubuntu:xenial
 
 RUN apt-get update \
-&& apt-get install -y curl \
+&& apt-get install -y curl wget\
 && curl -sL https://deb.nodesource.com/setup_8.x | bash - \
 #&& apt-get install -y docker.io \
+&& wget -q https://dl.k8s.io/v1.10.0/kubernetes-client-darwin-amd64.tar.gz -O /tmp/kubernetes-client-darwin-amd64.tar.gz \
+&& tar -xzvf /tmp/kubernetes-client-darwin-amd64.tar.gz -C /tmp/ \
+&& cp /tmp/kubernetes/client/bin/kubectl /usr/local/bin/kubectl \
+&& rm -rf /tmp/kubernetes-client-darwin-amd64.tar.gz \
+&& chmod +x /usr/local/bin/kubectl \
+&& apt-get install -y \
 nodejs \
 git \
-&& -q wget https://dl.k8s.io/v1.10.0/kubernetes-client-darwin-amd64.tar.gz -O /tmp \
-&& tar -xzvf /tmp/kubernetes-client-darwin-amd64.tar.gz -C /usr/local/bin/kubectl \
 build-essential \
 && apt-get clean \
 && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
