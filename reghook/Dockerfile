@@ -1,5 +1,8 @@
 FROM ubuntu:xenial
 
+LABEL sum.label-schema.vcs-url="https://github.com/sumitmaji/reghook.git"
+
+
 RUN apt-get update \
 && apt-get install -y curl wget\
 && curl -sL https://deb.nodesource.com/setup_8.x | bash - \
